@@ -13,6 +13,7 @@ const units = {
       mi: { name: "Mile (mi)", toBase: v => v * 1609.34, fromBase: v => v / 1609.34 },
     },
   },
+
   mass: {
     label: "Masse",
     units: {
@@ -22,7 +23,54 @@ const units = {
       oz: { name: "Once (oz)", toBase: v => v * 0.0283495, fromBase: v => v / 0.0283495 },
     },
   },
+
+  time: {
+    label: "Temps",
+    units: {
+      s: { name: "Seconde (s)", toBase: v => v, fromBase: v => v },
+      min: { name: "Minute (min)", toBase: v => v * 60, fromBase: v => v / 60 },
+      h: { name: "Heure (h)", toBase: v => v * 3600, fromBase: v => v / 3600 },
+      day: { name: "Jour (day)", toBase: v => v * 86400, fromBase: v => v / 86400 },
+    },
+  },
+
+  electricCurrent: {
+    label: "Intensité électrique",
+    units: {
+      A: { name: "Ampère (A)", toBase: v => v, fromBase: v => v },
+      mA: { name: "Milliampère (mA)", toBase: v => v / 1000, fromBase: v => v * 1000 },
+      μA: { name: "Microampère (μA)", toBase: v => v / 1_000_000, fromBase: v => v * 1_000_000 },
+    },
+  },
+
+  temperature: {
+    label: "Température thermodynamique",
+    units: {
+      K: { name: "Kelvin (K)", toBase: v => v, fromBase: v => v },
+      C: { name: "Celsius (°C)", toBase: v => v + 273.15, fromBase: v => v - 273.15 },
+      F: { name: "Fahrenheit (°F)", toBase: v => (v - 32) * 5 / 9 + 273.15, fromBase: v => (v - 273.15) * 9 / 5 + 32 },
+    },
+  },
+
+  amountOfSubstance: {
+    label: "Quantité de matière",
+    units: {
+      mol: { name: "Mole (mol)", toBase: v => v, fromBase: v => v },
+      mmol: { name: "Millimole (mmol)", toBase: v => v / 1000, fromBase: v => v * 1000 },
+      μmol: { name: "Micromole (μmol)", toBase: v => v / 1_000_000, fromBase: v => v * 1_000_000 },
+    },
+  },
+
+  luminousIntensity: {
+    label: "Intensité lumineuse",
+    units: {
+      cd: { name: "Candela (cd)", toBase: v => v, fromBase: v => v },
+      mcd: { name: "Millcandela (mcd)", toBase: v => v / 1000, fromBase: v => v * 1000 },
+      μcd: { name: "Microcandela (μcd)", toBase: v => v / 1_000_000, fromBase: v => v * 1_000_000 },
+    },
+  },
 };
+
 
 export default function UnitConverter() {
   const [category, setCategory] = useState("length");
@@ -38,6 +86,7 @@ export default function UnitConverter() {
   };
 
   const unitOptions = Object.entries(units[category].units);
+  console.log("unitoptions:",unitOptions)
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
