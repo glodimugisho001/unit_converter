@@ -89,7 +89,7 @@ export default function UnitConverter() {
   console.log("unitoptions:",unitOptions)
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-6">Convertisseur d'unités</h1>
 
       <div className="mb-4">

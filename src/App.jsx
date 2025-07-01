@@ -3,11 +3,8 @@ import UnitConverter from './components/UnitConvert'
 
 export default function App() {
   return (
-    <div>
+    <div className='h-screen bg-gray-100 flex items-center justify-center'>
       <UnitConverter />
-      <footer className="text-center text-gray-600 p-6">
-        <p>© 2025 Convertisseur d'unités</p>
-      </footer>
     </div>
   )
 }
